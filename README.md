@@ -36,6 +36,15 @@ Coloque qualquer informação adicional aqui
 Recebe dois números e retorna a sua soma.
 
 
+## Contribuindo
+
+Contribuições são sempre bem-vindas!
+
+Veja `CONTRIBUTIN.md` para saber como começar.
+
+Por favor, siga o `código de conduta` desse projeto.
+
+
 ## Autores
 
 - [@Arnaldo Nascimento](https://www.github.com/MatheusChagas123) 01401248 - Documentador
