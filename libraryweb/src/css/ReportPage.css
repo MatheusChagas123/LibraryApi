@@ -1,0 +1,126 @@
+/* UsersPage.css */
+  /* Estilo geral da página */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    
+  }
+  
+  /* Cabeçalho da página */
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+  }
+  
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 2px solid #ddd;
+  }
+  
+  th {
+    background-color: #f9f9f9;
+    font-weight: bold;
+  }
+  
+
+ 
+ /* Responsividade para smartphones menores (iPhone SE, Android compactos) */
+@media (max-width: 480px) {
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    table {
+      font-size: 0.8rem;
+      display: block;
+      overflow-x: auto;
+    }
+    th, td {
+      padding: 8px;
+    }
+  }
+  
+  /* Responsividade para smartphones maiores e tablets menores */
+  @media (max-width: 768px) {
+    h2 {
+      font-size: 1.75rem;
+    }
+    h3 {
+      font-size: 1.4rem;
+    }
+    table {
+      font-size: 0.9rem;
+      display: block;
+      overflow-x: auto;
+    }
+    th, td {
+      padding: 10px;
+    }
+  }
+  
+  /* Responsividade para tablets */
+  @media (max-width: 1024px) {
+    h2 {
+      font-size: 1.9rem;
+    }
+    h3 {
+      font-size: 1.45rem;
+    }
+    table {
+      font-size: 1rem;
+    }
+    th, td {
+      padding: 10px;
+    }
+  }
+  
+  /* Para telas maiores (PCs e notebooks) */
+  @media (min-width: 1025px) {
+    h2 {
+      font-size: 2rem;
+    }
+    h3 {
+      font-size: 1.5rem;
+    }
+    table {
+      font-size: 1rem;
+    }
+    th, td {
+      padding: 12px;
+    }
+  }
+  
+  /* Responsividade para telas grandes, como desktops em larga escala */
+  @media (min-width: 1400px) {
+    .container {
+      max-width: 1300px;
+    }
+    h2 {
+      font-size: 2.5rem;
+    }
+    h3 {
+      font-size: 1.75rem;
+    }
+    table {
+      font-size: 1.1rem;
+    }
+  }
