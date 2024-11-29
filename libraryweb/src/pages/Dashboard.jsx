@@ -2,21 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import livrologo from "../assets/livrologo.png"; // Importando a imagem
 
-
 const Dashboard = () => {
   return (
     <div className="dashboard">
       <header className="header">
-        <h1 className="header__title">Gerenciamento de Biblioteca</h1>
+        <h1 class="header__title" style={{ fontFamily: "Times New Roman" }}>
+          Gerenciamento de Biblioteca
+        </h1>
       </header>
 
       <main className="main">
         {/* Imagem centralizada */}
         <div className="image-container">
-          <img 
-            src={livrologo} 
-            alt="Gerenciamento de Biblioteca" 
-            className="dashboard__image" 
+          <img
+            src={livrologo}
+            alt="Gerenciamento de Biblioteca"
+            className="dashboard__image"
           />
         </div>
 

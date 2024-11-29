@@ -27,7 +27,9 @@ const ReportPage = () => {
         );
 
         if (!usersResponse.ok) {
-          throw new Error("Erro ao buscar os usuários com empréstimos pendentes");
+          throw new Error(
+            "Erro ao buscar os usuários com empréstimos pendentes"
+          );
         }
 
         const usersData = await usersResponse.json();
@@ -54,70 +56,88 @@ const ReportPage = () => {
   }
 
   return (
-    <div className="report-page">
-      <h1>Relatórios</h1>
+    <div className="dashboard">
+      <header className="header">
+        <h1 class="header__title" style={{ fontFamily: "Times New Roman" }}>
+          Gerenciamento de Biblioteca
+        </h1>
+      </header>
+      <div class="container">
+        <div class="user-list-container">
+          <h2 style={{ marginBottom: "40px", padding: "10px" }}>Relatórios</h2>
 
-      {/* Relatório de Livros Mais Emprestados */}
-      <section>
-        <h2>Livros Mais Emprestados</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID do Livro</th>
-              <th>Título</th>
-              <th>Autor</th>
-              <th>Quantidade de Empréstimos</th>
-            </tr>
-          </thead>
-          <tbody>
-            {mostBorrowedBooks.length > 0 ? (
-              mostBorrowedBooks.map((book) => (
-                <tr key={book.id}>
-                  <td>{book.id}</td>
-                  <td>{book.titulo}</td>
-                  <td>{book.autor}</td>
-                  <td>{book.qtdEmprestado}</td> {/* Ajustado para qtdEmprestado */}
+          {/* Relatório de Livros Mais Emprestados */}
+          <section>
+            <h3 style={{ padding: "20px" }}>Livros Mais Emprestados</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID Livro</th>
+                  <th>Título</th>
+                  <th>Autor</th>
+                  <th>Quantidade de Empréstimos</th>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4">Nenhum dado disponível.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </section>
+              </thead>
+              <tbody>
+                {mostBorrowedBooks.length > 0 ? (
+                  mostBorrowedBooks.map((book) => (
+                    <tr key={book.id}>
+                      <td style={{ alignItems: "center" }}>{book.id}</td>
+                      <td>{book.titulo}</td>
+                      <td>{book.autor}</td>
+                      <td style={{ padding: "0px 0px 0px 100px" }}>
+                        {book.qtdEmprestado}
+                      </td>{" "}
+                      {/* Ajustado para qtdEmprestado */}
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4" style={{ textAlign: "center" }}>
+                      Nenhum dado disponível.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </section>
 
-      {/* Relatório de Usuários com Empréstimos Pendentes */}
-      <section>
-        <h2>Usuários com Empréstimos Pendentes</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>ID do Usuário</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {userId.length > 0 ? (
-              userId.map((user) => (
-                <tr key={user.id}>
-                  <td>{user.usuario.id}</td> {/* ID do usuário */}
-                  <td>{user.usuario.nome}</td> {/* Nome do usuário */}
-                  <td>{user.usuario.email}</td> {/* Email do usuário */}
-                  <td>{user.usuario.status}</td> {/* Status do usuário */}
+          {/* Relatório de Usuários com Empréstimos Pendentes */}
+          <section>
+            <h3 style={{ padding: "20px" }}>
+              Usuários com Empréstimos Pendentes
+            </h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>ID Usuário</th>
+                  <th>Nome</th>
+                  <th>Email</th>
+                  <th>Status</th>
                 </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="4">Nenhum dado disponível.</td>
-              </tr>
-            )}
-          </tbody>
-        </table>
-      </section>
+              </thead>
+              <tbody>
+                {userId.length > 0 ? (
+                  userId.map((user) => (
+                    <tr key={user.id}>
+                      <td>{user.usuario.id}</td> {/* ID do usuário */}
+                      <td>{user.usuario.nome}</td> {/* Nome do usuário */}
+                      <td>{user.usuario.email}</td> {/* Email do usuário */}
+                      <td>{user.usuario.status}</td> {/* Status do usuário */}
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan="4" style={{ textAlign: "center" }}>
+                      Nenhum dado disponível.
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
     </div>
   );
 };
