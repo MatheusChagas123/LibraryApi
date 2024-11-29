@@ -125,8 +125,10 @@ const BooksPage = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Gerenciamento de Livros</h1>
+    <div class="container">
+      <header style={{ marginBottom: "15px" }} className="header">
+        <h1 className="header__title">Gerenciamento de Biblioteca</h1>
+      </header>
 
       {/* Mensagem de resposta */}
       {responseMessage && (
@@ -141,19 +143,26 @@ const BooksPage = () => {
       )}
 
       {/* Formulário para registrar livro */}
-      <div class="form-container">
-        <h2>Registrar Livro</h2>
-        <form id="form-registra-livro" onSubmit={registrarLivro}>
-          <div class="form-group">
-            <input type="text" name="titulo" placeholder="Título" required />
-          </div>
+      <div class="form-container" style={{ marginBottom: "40px" }}>
+        <h3>Registrar Livro</h3>
+        <form onSubmit={registrarLivro}>
+          <label>Título: </label>
+          <input type="text" name="titulo" placeholder="Título" required />
 
-          <div class="form-group">
-            <input type="text" name="autor" placeholder="Autor" required />
-          </div>
+          <label>Autor:</label>
+          <input type="text" name="autor" placeholder="Autor" required />
 
-          <div class="form-group">
-            <select name="genero" required>
+          <div className="form-row">
+            <label>Gênero:</label>
+            <select
+              name="genero"
+              required
+              style={{
+                width: "15%",
+                padding: "10px 0px 10px 5px",
+                marginLeft: "5px",
+              }}
+            >
               <option value="ACAO">Ação</option>
               <option value="ROMANCE">Romance</option>
               <option value="AUTO_AJUDA">Auto Ajuda</option>
@@ -161,22 +170,25 @@ const BooksPage = () => {
               <option value="FANTASIA">Fantasia</option>
               <option value="FICCAO_CIENTIFICA">Ficção Científica</option>
             </select>
-          </div>
 
-          <div class="form-group">
-            <input type="date" name="dataDePublicacao" required />
-          </div>
-
-          <div class="form-group">
-            <textarea
-              name="descricao"
-              placeholder="Descrição"
+            <label style={{ marginLeft: "10px" }}>Data de Publicação:</label>
+            <input
+              type="date"
+              name="dataDePublicacao"
               required
-            ></textarea>
-          </div>
+              style={{ width: "13%", marginTop: "10px", padding: "5px", marginLeft: "5px" }}
+            />
 
-          <div class="form-group">
-            <select name="estadoDoLivro" required>
+            <label style={{ marginLeft: "10px" }}>Estado do Livro:</label>
+            <select
+              name="estadoDoLivro"
+              required
+              style={{
+                width: "12%",
+                padding: "10px 0px 10px 5px",
+                marginLeft: "5px",
+              }}
+            >
               <option value="CONSERVADO">Conservado</option>
               <option value="BOM">Bom</option>
               <option value="REGULAR">Regular</option>
@@ -185,13 +197,20 @@ const BooksPage = () => {
             </select>
           </div>
 
+          <label>Descrição:</label>
+          <textarea
+            name="descricao"
+            placeholder="Descrição"
+            required
+            style={{ height: "100px", width: "70%",fontSize: "1rem", padding: "10px",  border: "1px solid #616161", resize: "vertical",  overflowY: "scroll",  }}
+          ></textarea>
           <button type="submit">Registrar</button>
         </form>
       </div>
 
       {/* Botão para listar livros */}
-      <div className="form-container">
-        <h2>Lista de Livros</h2>
+      <div className="form-container" style={{ marginBottom: "40px" }}>
+        <h3>Lista de Livros</h3>
         <button onClick={listarLivros}>Listar Livros</button>
         {showTable && (
           <table>
@@ -224,21 +243,26 @@ const BooksPage = () => {
       </div>
 
       {/* Formulário para atualizar livro */}
-      <div className="form-container">
-        <h2>Atualizar Livro</h2>
-        <form id="form-atualiza-livro" onSubmit={atualizarLivro}>
-          <div class="form-group">
-            <input type="number" name="id" placeholder="ID do Livro" required />
-          </div>
-          <div class="form-group">
-            <input type="text" name="titulo" placeholder="Título" />
-          </div>
-          <div class="form-group">
-            <input type="text" name="autor" placeholder="Autor" />
-          </div>
+      <div className="form-container" style={{ marginBottom: "40px" }}>
+        <h3>Atualizar Livro</h3>
+        <form onSubmit={atualizarLivro}>
+          <label>Título: </label>
+          <input type="text" name="titulo" placeholder="Título" required />
 
-          <div class="form-group">
-            <select name="genero">
+          <label>Autor:</label>
+          <input type="text" name="autor" placeholder="Autor" required />
+
+          <div className="form-row">
+            <label>Gênero:</label>
+            <select
+              name="genero"
+              required
+              style={{
+                width: "15%",
+                padding: "10px 0px 10px 0px",
+                marginLeft: "5px",
+              }}
+            >
               <option value="ACAO">Ação</option>
               <option value="ROMANCE">Romance</option>
               <option value="AUTO_AJUDA">Auto Ajuda</option>
@@ -246,17 +270,25 @@ const BooksPage = () => {
               <option value="FANTASIA">Fantasia</option>
               <option value="FICCAO_CIENTIFICA">Ficção Científica</option>
             </select>
-          </div>
 
-          <div class="form-group">
-            <input type="date" name="dataDePublicacao" />
-          </div>
-          <div class="form-group">
-            <textarea name="descricao" placeholder="Descrição"></textarea>
-          </div>
+            <label style={{ marginLeft: "10px" }}>Data de Publicação:</label>
+            <input
+              type="date"
+              name="dataDePublicacao"
+              required
+              style={{ marginLeft: "5px" }}
+            />
 
-          <div class="form-group">
-            <select name="estadoDoLivro">
+            <label style={{ marginLeft: "10px" }}>Estado do Livro:</label>
+            <select
+              name="estadoDoLivro"
+              required
+              style={{
+                width: "12%",
+                padding: "10px 0px 10px 0px",
+                marginLeft: "5px",
+              }}
+            >
               <option value="CONSERVADO">Conservado</option>
               <option value="BOM">Bom</option>
               <option value="REGULAR">Regular</option>
@@ -265,22 +297,29 @@ const BooksPage = () => {
             </select>
           </div>
 
+          <label>Descrição:</label>
+          <textarea
+            name="descricao"
+            placeholder="Descrição"
+            required
+            maxLength={255}
+          ></textarea>
+
           <button type="submit">Atualizar</button>
         </form>
       </div>
 
       {/* Formulário para deletar livro */}
       <div className="form-container">
-        <form id="form-deleta-livro" onSubmit={deletarLivro}>
-          <h2>Deletar Livro</h2>
-          <div class="form-group">
-            <input
-              type="number"
-              name="livroId"
-              placeholder="ID do Livro"
-              required
-            />
-          </div>
+        <form onSubmit={deletarLivro}>
+          <h3>Deletar Livro</h3>
+          <input
+            style={{ width: "10%" }}
+            type="number"
+            name="livroId"
+            placeholder="ID do Livro"
+            required
+          />
 
           <button type="submit">Deletar</button>
         </form>

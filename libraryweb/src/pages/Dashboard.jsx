@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import livrologo from "../assets/livrologo.png"; // Importando a imagem
 
+
 const Dashboard = () => {
   return (
     <div className="dashboard">
@@ -34,6 +35,11 @@ const Dashboard = () => {
             <li className="nav__item">
               <Link to="/loans" className="nav__link">
                 Gerenciar Empréstimos
+              </Link>
+            </li>
+            <li className="nav__item">
+              <Link to="/report" className="nav__link">
+                Gerenciar Relatorios
               </Link>
             </li>
           </ul>
