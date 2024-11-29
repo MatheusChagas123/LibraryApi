@@ -186,7 +186,7 @@ const LoansPage = () => {
             </tbody>
           </table>
         ) : (
-          <p>Nenhum empréstimo ativo encontrado.</p>
+          <p style={{extalign: "center",}}>Nenhum empréstimo ativo encontrado.</p>
         )}
       </div>
 
