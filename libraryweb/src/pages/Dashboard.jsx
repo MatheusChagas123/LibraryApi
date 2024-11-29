@@ -6,18 +6,16 @@ const Dashboard = () => {
   return (
     <div className="dashboard">
       <header className="header">
-        <h1 class="header__title" style={{ fontFamily: "Times New Roman" }}>
-          Gerenciamento de Biblioteca
-        </h1>
+        <h1 className="header__title">Gerenciamento de Biblioteca</h1>
       </header>
 
       <main className="main">
         {/* Imagem centralizada */}
         <div className="image-container">
-          <img
-            src={livrologo}
-            alt="Gerenciamento de Biblioteca"
-            className="dashboard__image"
+          <img 
+            src={livrologo} 
+            alt="Gerenciamento de Biblioteca" 
+            className="dashboard__image" 
           />
         </div>
 
@@ -36,11 +34,6 @@ const Dashboard = () => {
             <li className="nav__item">
               <Link to="/loans" className="nav__link">
                 Gerenciar Empréstimos
-              </Link>
-            </li>
-            <li className="nav__item">
-              <Link to="/report" className="nav__link">
-                Gerenciar Relatorios
               </Link>
             </li>
           </ul>

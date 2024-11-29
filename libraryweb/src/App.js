@@ -4,7 +4,6 @@ import Dashboard from "./pages/Dashboard";
 import BooksPage from "./pages/BooksPage";
 import UsersPage from "./pages/UsersPage";
 import LoansPage from "./pages/LoansPage";
-import ReportPage from "./pages/ReportPage";
 
 const App = () => {
   return (
@@ -14,7 +13,6 @@ const App = () => {
         <Route path="/books" element={<BooksPage />} />
         <Route path="/users" element={<UsersPage />} />
         <Route path="/loans" element={<LoansPage />} />
-        <Route path="/report" element={<ReportPage />} />
       </Routes>
     </Router>
   );
