@@ -100,16 +100,17 @@ public class UsuarioService {
         boolean possuiAtraso = usuario.getEmprestimos().stream()
                 .anyMatch(emprestimo -> emprestimo.getDataLimite().isBefore(LocalDate.now()));
 
+        if (usuario.getEmprestimos().isEmpty()) {
+            usuario.setStatus(Status.SEM_LIVRO);
+        }
+        if(!usuario.getEmprestimos().isEmpty()){
+            usuario.setStatus(Status.COM_LIVRO);
+        }
         if (possuiAtraso) {
             usuario.setStatus(Status.EM_ATRASO);
-        } else if (usuario.getEmprestimos().isEmpty()) {
-            usuario.setStatus(Status.SEM_LIVRO);
-        } else {
-            usuario.setStatus(Status.COM_LIVRO);
         }
 
         usuarioRepository.save(usuario);
     }
-
 
 }
