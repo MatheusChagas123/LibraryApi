@@ -47,17 +47,20 @@ Por favor, siga o `código de conduta` desse projeto.
 
 ## Autores
 
-- [@Arnaldo Nascimento](https://www.github.com/MatheusChagas123) 01401248 - Documentador
+- [@Arnaldo Nascimento](https://github.com/ArnaldoWillian) 01401248 - Documentador
 
-- [@Cauã Cunha](https://www.github.com/MatheusChagas123) 01432916 - Desenvolvedor
+- [@Cauã Cunha](https://github.com/CauaSiqueira29) 01432916 - Desenvolvedor
 
-- [@Deangellis Silva](https://www.github.com/MatheusChagas123) 11024358 - Documentador
+- [@Deangellis Silva](hhttps://github.com/Deangellisberg) 11024358 - Documentador
 
-- [@Ítalo Souza](https://www.github.com/MatheusChagas123) 0120009 - Documentador
+- [@Ítalo Souza](https://github.com/Italo-Bessa) 01200094 - Documentador
 
 - [@Jonathas Xavier](https://github.com/Dev-Jonathas) 01403089 - Desenvolvedor
 
 - [@Matheus Chagas](https://www.github.com/MatheusChagas123) 01455797 - Gerente de configuração
 
-- [@Pedro Melo](https://www.github.com/MatheusChagas123) 01482712 - Scrum Master
+- [@Pedro Melo](https://github.com/PedroAlencarM) 01482712 - Scrum Master
 
+
+## License
+-[Licença](https://github.com/MatheusChagas123/LibraryApi/blob/main/LICENSE)
