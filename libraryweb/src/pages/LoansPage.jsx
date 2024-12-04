@@ -10,13 +10,13 @@ const LoansPage = () => {
   const [dueDate, setDueDate] = useState("");
   const [loanId, setLoanId] = useState(""); // Para a devolução
   const [returnDate, setReturnDate] = useState(""); // Data de devolução
+  const [message, setMessage] = useState(""); // Mensagens de feedback
 
   // Função para buscar empréstimos
   const fetchLoans = async () => {
     try {
       const response = await fetch(`${baseUrl}/todos`);
       const data = await response.json();
-
       if (response.ok) {
         setLoans(data);
       } else {
@@ -28,9 +28,17 @@ const LoansPage = () => {
     }
   };
 
+  // Função para registrar o empréstimo
   const handleLoan = async (e) => {
     e.preventDefault();
     try {
+      // Verifica se a data limite é válida
+      const currentDate = new Date().toISOString().split("T")[0];
+      if (dueDate < currentDate) {
+        setMessage("A data limite não pode ser no passado.");
+        return;
+      }
+
       const response = await fetch(`${baseUrl}/aluga`, {
         method: "POST",
         headers: {
@@ -40,16 +48,14 @@ const LoansPage = () => {
           usuarioId: userId,
           livroId: bookId,
           dataLimite: dueDate,
-          status: "PENDENTE",
+          status: "PENDENTE", // Status inicialmente "PENDENTE"
         }),
       });
 
       if (response.ok) {
-        // Handle success (optional feedback)
-      } else if (response.status === 400) {
-        // Handle specific error (optional feedback)
+        setMessage("Empréstimo registrado com sucesso!");
       } else {
-        // Handle other errors (optional feedback)
+        setMessage("Erro ao registrar o empréstimo.");
       }
 
       setUserId("");
@@ -57,10 +63,12 @@ const LoansPage = () => {
       setDueDate("");
       fetchLoans();
     } catch (error) {
-      // Handle error (optional feedback)
+      setMessage("Erro ao registrar o empréstimo.");
+      console.error("Erro ao registrar empréstimo:", error);
     }
   };
 
+  // Função para registrar a devolução
   const handleReturn = async (e) => {
     e.preventDefault();
 
@@ -68,13 +76,13 @@ const LoansPage = () => {
     const currentDate = new Date().toISOString().split("T")[0];
 
     if (returnDate < currentDate) {
-      // Optionally handle invalid return date
+      setMessage("Data de devolução inválida.");
       return;
     }
 
     try {
       const response = await fetch(`${baseUrl}/devolucao/${loanId}`, {
-        method: "DELETE", // Alterado para POST para incluir data
+        method: "POST", // Alterado para POST para incluir data
         headers: {
           "Content-Type": "application/json",
         },
@@ -84,12 +92,15 @@ const LoansPage = () => {
       });
 
       if (response.ok) {
-        fetchLoans();
+        setMessage("Livro devolvido com sucesso!");
       } else {
-        // Handle error (optional feedback)
+        setMessage("Erro ao devolver o livro.");
       }
+
+      fetchLoans();
     } catch (error) {
       console.error("Erro ao devolver livro:", error);
+      setMessage("Erro ao devolver o livro.");
     }
   };
 
@@ -101,13 +112,13 @@ const LoansPage = () => {
   return (
     <div className="dashboard">
       <header className="header">
-        <h1 class="header__title" style={{ fontFamily: "Times New Roman" }}>
+        <h1 className="header__title" style={{ fontFamily: "Times New Roman" }}>
           Gerenciamento de Biblioteca
         </h1>
       </header>
-      <div class="container">
+      <div className="container">
         {/* Formulário para registrar empréstimo */}
-        <div class="form-container" style={{ marginBottom: "40px" }}>
+        <div className="form-container" style={{ marginBottom: "40px" }}>
           <h3>Registrar Empréstimo</h3>
           <form onSubmit={handleLoan}>
             <label style={{ marginBottom: "10px" }}>Usuário ID:</label>
@@ -143,8 +154,11 @@ const LoansPage = () => {
           </form>
         </div>
 
+        {/* Mensagem de feedback */}
+        {message && <p style={{ textAlign: "center", color: "green" }}>{message}</p>}
+
         {/* Lista de empréstimos */}
-        <div class="user-list-container">
+        <div className="user-list-container">
           <h3 style={{ padding: "20px" }}>Lista de Empréstimos</h3>
           {loans.length > 0 ? (
             <table>
@@ -153,7 +167,6 @@ const LoansPage = () => {
                   <th>ID Empréstimo</th>
                   <th>Nome do Livro</th>
                   <th>Nome do Usuário</th>
-                  <th>D.empréstimo</th>
                   <th>D.devolução</th>
                   <th>Status</th>
                 </tr>
@@ -164,7 +177,6 @@ const LoansPage = () => {
                     <td>{loan.id}</td>
                     <td>{loan.livro.titulo}</td>
                     <td>{loan.usuario.nome}</td>
-                    <td>{loan.dataEmprestimo}</td>
                     <td>{loan.dataLimite}</td>
                     <td>{loan.usuario.status}</td>
                   </tr>
@@ -179,7 +191,7 @@ const LoansPage = () => {
         </div>
 
         {/* Formulário para devolver livro */}
-        <div class="form-container" style={{ marginBottom: "40px" }}>
+        <div className="form-container" style={{ marginBottom: "40px" }}>
           <h3>Devolução de Livro</h3>
           <form onSubmit={handleReturn}>
             <label style={{ marginBottom: "10px" }}>ID Empréstimo:</label>
