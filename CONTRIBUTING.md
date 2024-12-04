@@ -1,3 +1,16 @@
+# Sistema de Gerenciamento de Biblioteca
+
+Este projeto tem como objetivo desenvolver uma API RESTful para gerenciar os recursos de uma biblioteca, permitindo o controle de livros, usuários (leitores) e empréstimos. O sistema visa simplificar a administração de uma biblioteca, fornecendo funcionalidades robustas e uma interface web amigável, ambas conteinerizadas para fácil implantação e manutenção.
+
+## Como Baixar o Repositório
+```bash
+  git clone https://github.com/MatheusChagas123/LibraryApi.git
+  cd LibaryApi
+  
+```
+## Pré-requisitos
+
+
 ## Padrões de Commit
 
 - **feat**: Um novo recurso para a aplicação, e não precisa ser algo grande, mas apenas algo que não existia antes e que a pessoa final irá acessar.
