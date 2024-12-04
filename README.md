@@ -177,7 +177,7 @@ Exemplo:
 
 Contribuições são sempre bem-vindas!
 
-Veja `CONTRIBUTIN.md` para saber como começar.
+Veja [CONTRIBUTING.md](https://github.com/MatheusChagas123/LibraryApi/blob/main/CONTRIBUTING.md) para saber como começar.
 
 Por favor, siga o `código de conduta` desse projeto.
 
@@ -188,7 +188,7 @@ Por favor, siga o `código de conduta` desse projeto.
 
 - [@Cauã Cunha](https://github.com/CauaSiqueira29) 01432916 - Desenvolvedor
 
-- [@Deangellis Silva](hhttps://github.com/Deangellisberg) 11024358 - Documentador
+- [@Deangellis Silva](https://github.com/Deangellisberg) 11024358 - Documentador
 
 - [@Ítalo Souza](https://github.com/Italo-Bessa) 01200094 - Documentador
 
