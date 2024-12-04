@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0.31
+    container_name: mysql-biblioteca
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: sistemas_distribuidos
+      MYSQL_USER: libraryUser
+      MYSQL_PASSWORD: libraryPassword
+    ports:
+      - "3307:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - bibliotecas-network
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: sistemas-distribuidos
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mysql
+    networks:
+      - bibliotecas-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/sistemas_distribuidos?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: libraryUser
+      SPRING_DATASOURCE_PASSWORD: libraryPassword
+
+networks:
+  bibliotecas-network:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local
