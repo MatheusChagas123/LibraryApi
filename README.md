@@ -9,31 +9,168 @@ Este projeto tem como objetivo desenvolver uma API RESTful para gerenciar os rec
 Coloque qualquer informação adicional aqui
 
 
-## Documentação da API
+# Documentação da API
 
-#### Retorna todos os itens
+## Usuários 
 
-```http
-  GET /api/items
-```
-
-| Parâmetro   | Tipo       | Descrição                           |
-| :---------- | :--------- | :---------------------------------- |
-| `api_key` | `string` | **Obrigatório**. A chave da sua API |
-
-#### Retorna um item
+#### Cadastro de Usuários
 
 ```http
-  GET /api/items/${id}
+  POST localhost:8080/Usuario/aluga
 ```
 
-| Parâmetro   | Tipo       | Descrição                                   |
-| :---------- | :--------- | :------------------------------------------ |
-| `id`      | `string` | **Obrigatório**. O ID do item que você quer |
+#### Json
 
-#### add(num1, num2)
+Exemplo:
 
-Recebe dois números e retorna a sua soma.
+```bash
+  {
+     "nome":"Caua ",
+    "endereco":{
+        "logradouro":"logradouro",
+        "cep":"cep",
+        "bairro":"bairro",
+        "cidade":"cidade",
+        "numero":"numero"
+    },
+    "email":"caua1@gmail.com",
+    "telefone":"telefone"
+}
+```
+
+#### Retorna Usuárioss
+
+```http
+  GET /localhost:8080/Usuario/todos
+```
+
+#### Retorna Usuários por ID
+
+```http
+  GET /localhost:8080/Usuario/ID
+```
+
+#### Retorna Usuario Por Status
+
+```http
+  GET /localhost:8080//Usuario/status?status=SEM_LIVRO
+```
+
+#### Atualiza Usuários por ID
+
+```http
+  PUT /localhost:8080/Usuario/ID
+```
+
+#### Json
+
+Exemplo:
+
+```bash
+  {
+    "email":"teste1@gmail.com"
+}
+```
+
+#### Deleta Usuários por ID
+
+```http
+  DELETE /localhost:8080/Usuario/ID
+```
+
+## Livros
+
+#### Registra Livro
+
+```http
+  POST /localhost:8080/Livro/registra
+```
+
+#### Json
+
+Exemplo:
+
+```bash
+  {
+    "titulo":"Harry Potter 1",
+    "autor":"Nao lembro",
+    "genero":"AUTO_AJUDA",
+    "dataDePublicacao":"2024-12-19",
+    "descricao":"teste 1",
+    "estadoDoLivro":"CONSERVADO"
+}
+```
+
+#### Retorna Livro
+
+```http
+  GET /localhost:8080/Livro/todos
+```
+
+#### Retorna Livro por ID
+
+```http
+  GET /localhost:8080/Livro/ID
+```
+
+#### Top 5 Livros
+
+```http
+  GET /localhost:8080/Livro/maisEmprestado
+```
+
+#### Atualiza Livro por ID
+
+```http
+  PUT /localhost:8080/Livro/ID
+```
+
+#### Json
+
+Exemplo:
+
+```bash
+  {
+    "titulo":"Como ser um bom professor"
+}
+```
+
+#### Deleta Livro por ID
+
+```http
+  DELETE /localhost:8080/Livro/ID
+```
+
+## Empréstimo
+
+#### Cadastro de Empréstimo
+
+```http
+  POST localhost:8080/Emprestimo/cadastra
+```
+
+#### Json
+
+Exemplo:
+
+```bash
+  {
+    "usuarioId":1,
+    "livroId":2,
+    "dataLimite":"2024-11-29"
+}
+```
+#### Retorna Emprestino
+
+```http
+  GET /localhost:8080/Emprestino/todos
+```
+
+#### Deleta Emprestimo por ID
+
+```http
+  DELETE /localhost:8080/Emprestimo/devolucao/ID
+```
 
 
 ## Contribuindo
