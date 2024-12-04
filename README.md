@@ -192,7 +192,7 @@ Por favor, siga o `código de conduta` desse projeto.
 
 - [@Ítalo Souza](https://github.com/Italo-Bessa) 01200094 - Documentador
 
-- [@Jonathas Freitas](https://github.com/Dev-Jonathas) 01403089 - Desenvolvedor
+- [@Jonathas Xavier](https://github.com/Dev-Jonathas) 01403089 - Desenvolvedor
 
 - [@Matheus Chagas](https://www.github.com/MatheusChagas123) 01455797 - Gerente de configuração
 

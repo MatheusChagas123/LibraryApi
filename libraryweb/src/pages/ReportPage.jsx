@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 const ReportPage = () => {
   const [mostBorrowedBooks, setMostBorrowedBooks] = useState([]);
-  const [userId, setUserId] = useState([]);
+  const [usersWithLateLoans, setUsersWithLateLoans] = useState([]);
   const [loading, setLoading] = useState(true);
 
   // Função para buscar os dados do relatório
@@ -34,11 +34,12 @@ const ReportPage = () => {
 
         const usersData = await usersResponse.json();
 
-        // Filtra os usuários para exibir apenas os com status EM_ATRASO
+        // Filtra os usuários para exibir apenas os com status "EM_ATRASO"
         const filteredUsers = usersData.filter(
-          (user) => user.usuario.status === "EM_ATRASO"
+          (user) => user.usuario && user.usuario.status === "EM_ATRASO"
         );
-        setUserId(filteredUsers);
+
+        setUsersWithLateLoans(filteredUsers);
 
         setLoading(false);
       } catch (error) {
@@ -58,12 +59,12 @@ const ReportPage = () => {
   return (
     <div className="dashboard">
       <header className="header">
-        <h1 class="header__title" style={{ fontFamily: "Times New Roman" }}>
+        <h1 className="header__title" style={{ fontFamily: "Times New Roman" }}>
           Gerenciamento de Biblioteca
         </h1>
       </header>
-      <div class="container">
-        <div class="user-list-container">
+      <div className="container">
+        <div className="user-list-container">
           <h2 style={{ marginBottom: "40px", padding: "10px" }}>Relatórios</h2>
 
           {/* Relatório de Livros Mais Emprestados */}
@@ -87,8 +88,7 @@ const ReportPage = () => {
                       <td>{book.autor}</td>
                       <td style={{ padding: "0px 0px 0px 100px" }}>
                         {book.qtdEmprestado}
-                      </td>{" "}
-                      {/* Ajustado para qtdEmprestado */}
+                      </td>
                     </tr>
                   ))
                 ) : (
@@ -104,9 +104,7 @@ const ReportPage = () => {
 
           {/* Relatório de Usuários com Empréstimos Pendentes */}
           <section>
-            <h3 style={{ padding: "20px" }}>
-              Usuários com Empréstimos Pendentes
-            </h3>
+            <h3 style={{ padding: "20px" }}>Usuários com Empréstimos Pendentes</h3>
             <table>
               <thead>
                 <tr>
@@ -117,9 +115,9 @@ const ReportPage = () => {
                 </tr>
               </thead>
               <tbody>
-                {userId.length > 0 ? (
-                  userId.map((user) => (
-                    <tr key={user.id}>
+                {usersWithLateLoans.length > 0 ? (
+                  usersWithLateLoans.map((user) => (
+                    <tr key={user.usuario.id}>
                       <td>{user.usuario.id}</td> {/* ID do usuário */}
                       <td>{user.usuario.nome}</td> {/* Nome do usuário */}
                       <td>{user.usuario.email}</td> {/* Email do usuário */}
