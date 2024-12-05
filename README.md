@@ -3,6 +3,32 @@
 
 Este projeto tem como objetivo desenvolver uma API RESTful para gerenciar os recursos de uma biblioteca, permitindo o controle de livros, usuários (leitores) e empréstimos. O sistema visa simplificar a administração de uma biblioteca, fornecendo funcionalidades robustas e uma interface web amigável, ambas conteinerizadas para fácil implantação e manutenção.
 
+## Setup para instalação:
+
+- Baixar Docker
+
+- Baixar maven, e JDK 17
+
+- Colocar Maven na pasta C:/
+
+- Executar o JDK, baixar o Java 17, criar a pasta java e colocar nela
+
+- Criar as variáveis de sistema: 
+	
+- JAVA_HOME com o valor sendo o caminho da PASTA DO JAVA 17
+
+- Na variável path:
+		
+- clicar em novo, adicionar o caminho do BIN do maven e colocar o valor %JAVA_HOME%\bin
+
+- Abrir pasta do libraryApi e iniciar cmd
+
+- no cmd digitar docker-compose build
+
+- Depois -> docker-compose up
+
+- estará rodando.
+
 
 ## Apêndice
 
